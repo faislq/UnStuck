@@ -7,4 +7,6 @@
     <string name="apps_screen">Apps Screen</string>
     <string name="main_screen">Main Screen</string>
     <string name="apps">Apps</string>
+    <string name="onOffButton">onOffButton</string>
+    <string name="developer">jacob</string>
 </resources>
