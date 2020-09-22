@@ -40,5 +40,14 @@
         android:scaleX="2"
         android:scaleY="2" />
 
+    <TextView
+        android:id="@+id/onOffText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="243dp"
+        android:text="Off" />
+
 
 </RelativeLayout>

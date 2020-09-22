@@ -8,17 +8,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.ToggleButton;
 
 public class MainActivity extends AppCompatActivity {
     private Button appsButton;
     private Switch onOffButton;
+    private TextView onOffText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //buttons
+        addToggleButton();
         appsButton = (Button) findViewById(R.id.appsButton);
         appsButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -36,12 +39,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void addToggleButton(){
         onOffButton = (Switch)findViewById(R.id.onOffButton);
+        onOffText = (TextView) findViewById(R.id.onOffText);
         onOffButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
+                    onOffText.setText("On");
 
                 }else{
+                    onOffText.setText("Off");
 
                 }
             }
