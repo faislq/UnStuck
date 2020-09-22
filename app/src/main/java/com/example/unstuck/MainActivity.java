@@ -10,6 +10,7 @@ import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.ToggleButton;
+import android.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
     private Button appsButton;
@@ -20,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Toolbar toolbar = findViewById(R.id.toolbar);
         //buttons
         addToggleButton();
         appsButton = (Button) findViewById(R.id.appsButton);
