@@ -1,25 +1,34 @@
 package com.example.unstuck;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.ToggleButton;
-import android.widget.Toolbar;
+
+
+import com.google.android.material.navigation.NavigationView;
 
 import org.eazegraph.lib.charts.PieChart;
 import org.eazegraph.lib.models.PieModel;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private Button appsButton;
     private Switch onOffButton;
     private TextView onOffText, category1, category2, category3, category4;
+    private Toolbar toolbar;
+    private DrawerLayout drawerLayout;
+    private NavigationView navigationView;
     PieChart pieChart;
 
     @Override
@@ -27,7 +36,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Toolbar toolbar = findViewById(R.id.toolbar);
+        //top bar
+        toolbar = findViewById(R.id.bar);
+        setSupportActionBar(toolbar);
+        //side bar menu
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.nav_view);
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(
+                this,
+                drawerLayout,
+                toolbar,
+                R.string.openNavDrawer,
+                R.string.closeNavDrawer
+
+        );
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.syncState();
+        navigationView.setNavigationItemSelectedListener(this);
+
         //buttons
         addToggleButton();
         appsButton = (Button) findViewById(R.id.appsButton);
@@ -38,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+
         //pie chart
         category1 = findViewById(R.id.category1);
         category2 = findViewById(R.id.category2);
@@ -48,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
         setChartData();
 
     }
+
     public void openAppsActivity(){
         Intent intent = new Intent(this, AppsActivity.class);
         startActivity(intent);
@@ -100,5 +128,15 @@ public class MainActivity extends AppCompatActivity {
 
         // To animate the pie chart
         pieChart.startAnimation();
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        return false;
+    }
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
     }
 }

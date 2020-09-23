@@ -9,4 +9,8 @@
     <string name="apps">Apps</string>
     <string name="onOffButton">onOffButton</string>
     <string name="developer">jacob</string>
+
+
+    <string name="openNavDrawer">Navigation Drawer Open</string>
+    <string name="closeNavDrawer">Navigation Drawer Close</string>
 </resources>
